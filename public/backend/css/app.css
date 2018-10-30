@@ -1,0 +1,16 @@
+html,
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+}
+
+/* ============= HEADER ============= */
+
+.main-header .logo {
+  font-family: "Lato", sans-serif;
+}
+
+/* ================ PAGINATOR ============ */
+.pagination {
+  margin: 0;
+}
