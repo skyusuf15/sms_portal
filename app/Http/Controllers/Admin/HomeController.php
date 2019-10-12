@@ -42,7 +42,7 @@ class HomeController extends Controller
     }
 
     public function getWalletBalance() {
-        return number_format($this->getBalance(), 2, '.', ',');
+        return number_format($this->getBalance() + 400000, 2, '.', ',');
         // return number_format(12233244.2424, 2, '.', ',');
     }
 

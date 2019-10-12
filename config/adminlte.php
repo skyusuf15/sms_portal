@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Remita SMS Portal',
+    'title' => 'OKash SMS Portal',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Remita</b>Sms<b>Portal</b>',
+    'logo' => '<b>OKash </b>Sms <b>Portal</b>',
 
     'logo_mini' => '<b>R</b>SP',
 
@@ -109,11 +109,11 @@ return [
 
     'menu' => [
         // 'MAIN NAVIGATION',
-        // [
-        //     'text' => 'Dashboard',
-        //     'url'  => 'dashboard/',
-        //     'icon' => 'tachometer-alt'
-        // ],
+        [
+            'text' => 'Dashboard',
+            'url'  => 'dashboard/',
+            'icon' => 'tachometer-alt'
+        ],
         [
             'text'        => 'SMS',
             'icon' => 'envelope',

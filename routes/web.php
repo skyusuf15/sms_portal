@@ -12,13 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
 
 Route::group(['prefix' => 'dashboard', 'namespace' => 'Admin' , 'middleware' => ['auth']],function(){
-    // Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('/wallet-balance', 'HomeController@getWalletBalance');
 

@@ -103,7 +103,8 @@ class MessageController extends Controller
             'message' => 'required'
         ]);
 
-        $sender = 'DND_BYPASS'.$this->request->input('sender', env('APP_NAME'));
+        // $sender = 'DND_BYPASS'.$this->request->input('sender', env('APP_NAME'));
+        $sender = $this->request->input('sender', env('APP_NAME'));
 
         $extension = $this->request->contacts->extension();
 
