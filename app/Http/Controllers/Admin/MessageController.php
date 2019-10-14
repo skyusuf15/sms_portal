@@ -205,13 +205,12 @@ class MessageController extends Controller
         }
     }
 
-    private function sendSMS($sender, $receipient, $message){
+    private function sendSMS($sender, $receipient, $message, $cmd = 'sendquickmsg'){
         $this->sessionId = $this->getSessionId();
-        // dd($this->sessionId);
-        // return $this->sessionId;
         $sendSMSResponse =  $this->client->request('GET', '', [
             'query' => [
-                'cmd' => 'sendmsg',
+                //'cmd' => 'sendmsg',
+                'cmd' => $cmd,
                 'sessionid' => $this->sessionId,
                 'message' => $message,
                 'sender' => $sender, //DND_BYPASSSLyman
