@@ -63,9 +63,7 @@ class MessageController extends Controller
             'message' => 'required'
         ]);
 
-
-        //$sender = 'DND_BYPASS'.$this->request->input('sender', env('APP_NAME'));
-        $sender = $this->request->input('sender', env('APP_NAME'));
+        $sender = 'DND_BYPASS'.$this->request->input('sender', env('APP_NAME'));
         $receipient =  "234".ltrim($this->request->receipient, '0');
         $message = $this->request->message;
 
@@ -207,12 +205,13 @@ class MessageController extends Controller
         }
     }
 
-    private function sendSMS($sender, $receipient, $message, $cmd = 'sendquickmsg'){
+    private function sendSMS($sender, $receipient, $message){
         $this->sessionId = $this->getSessionId();
+        // dd($this->sessionId);
+        // return $this->sessionId;
         $sendSMSResponse =  $this->client->request('GET', '', [
             'query' => [
-                //'cmd' => 'sendmsg',
-                'cmd' => $cmd,
+                'cmd' => 'sendmsg',
                 'sessionid' => $this->sessionId,
                 'message' => $message,
                 'sender' => $sender, //DND_BYPASSSLyman
