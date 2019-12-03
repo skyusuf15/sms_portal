@@ -57,6 +57,11 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+                        @if(Auth::user()->name == "Admin")
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Create New User</a>
+                            </li>
+                        @endif
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
