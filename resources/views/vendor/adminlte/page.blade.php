@@ -99,6 +99,15 @@
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
                     @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
+                    @if(Auth::user()->name == "Admin")
+                    <ul class="sidebar-menu tree">
+                        <li>
+                            <a class="nav-link" href="{{ route('upload') }}">
+                            <i class="fa fa-fw fa-circle-o text-blue"></i><span>Upload SMS History</span></a>
+                        </li>
+                    </ul>
+                            
+                    @endif
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>

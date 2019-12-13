@@ -309,4 +309,5 @@ class MessageController extends Controller
     
         return $max_depth;
     }
+
 }

@@ -37,4 +37,9 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Admin' , 'middleware' => 
         Route::get('/message/{message_id}', 'MessageController@showSMS');
     
     });
+
+    Route::group(['prefix' => 'sms_history'], function() {
+        Route::get('/upload', 'MessageHistoryController@upload')->name('upload');   
+        Route::post('/upload', 'MessageHistoryController@upload_file')->name('upload-file'); 
+    });
 });
