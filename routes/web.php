@@ -21,6 +21,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Admin' , 'middleware' => 
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('/wallet-balance', 'HomeController@getWalletBalance');
+    Route::get('/getPrefixCount', 'HomeController@getTelcosCount');
 
     Route::group(['prefix' => 'sms'], function(){
         // Route::get('/', 'MessageController@index');
@@ -41,5 +42,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Admin' , 'middleware' => 
     Route::group(['prefix' => 'sms_history'], function() {
         Route::get('/upload', 'MessageHistoryController@upload')->name('upload');   
         Route::post('/upload', 'MessageHistoryController@upload_file')->name('upload-file'); 
+
+        Route::get('/show', 'MessageHistoryController@show')->name('show'); 
     });
 });

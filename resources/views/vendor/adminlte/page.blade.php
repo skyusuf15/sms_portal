@@ -100,12 +100,26 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     @each('adminlte::partials.menu-item', $adminlte->menu(), 'item')
                     @if(Auth::user()->name == "Admin")
-                    <ul class="sidebar-menu tree">
-                        <li>
-                            <a class="nav-link" href="{{ route('upload') }}">
-                            <i class="fa fa-fw fa-circle-o text-blue"></i><span>Upload SMS History</span></a>
-                        </li>
-                    </ul>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-fw fa-envelope "></i>
+                            <span>SMS History</span>
+                                <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        
+                        <ul class="treeview-menu">
+                            <li class="">
+                                <a href="{{ route('upload') }}"><i class="fa fa-fw fa-circle"></i><span>Upload SMS History</span></a>
+                            </li>
+                            <li class="">
+                                <a href="{{ route('show') }}"><i class="fa fa-fw fa-circle "></i><span>View SMS History</span></a>
+                            </li>
+                        </ul>
+
+                    </li>
                             
                     @endif
                 </ul>

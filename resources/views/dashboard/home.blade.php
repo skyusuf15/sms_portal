@@ -50,6 +50,53 @@
   </div>
   <!-- /.col -->
 </div>
+
+--}}
+
+<div class="row">
+  <div id="">
+      <div class="col-sm-12">
+          <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">SMS Prize Analysis</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="box-body" style="">
+
+
+                  <div id="loader" style="display:flex;justify-content:center;align-items:center">
+                    <i class="fas fa-spinner fa-spin"></i><span>&nbsp;Loading.....</span>
+                  </div>
+
+                  <table id="prefix" class="table table-bordered table-responsive">
+                      <thead>
+                          <tr>
+                              <th style="width: 10px">#</th>
+                              <th>Network</th>
+                              <th>Price Per Unit (&#x20A6;)</th>
+                              <th>Network Count</th>
+                              <th>SMS Unit</th>
+                              <th>Total Charged (&#x20A6;)</th>
+                          </tr>
+                      </thead>
+                      <tbody></tbody>
+                  </table>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+      </div>
+  </div>
+  
+</div>
+
+
+
+
+{{--
+
 <div class="row">
   <div id="chart">
       <div class="col-sm-12">
@@ -73,10 +120,33 @@
       </div>
   </div>
   
-</div>--}}
+</div>
+--}}
+
 @stop
 
 @section('extra-js')
-    <script src="{{mix('js/dashboard-home.js')}}"></script>
+<script src="{{mix('js/dashboard-home.js')}}"></script>
 <script>console.log('Home');</script>
+ 
+<script>
+$(function(){
+
+  $.getJSON("{{url('/dashboard/getPrefixCount')}}"  , function(result){
+    var tbody = ``;
+    $.each(Object.keys(result), function(i,v){
+      tbody += `<tr><td style="width: 10px">${i+1}</td><td>${v}</td><td>${result[v].price_per_unit}</td><td>${result[v].network_count}</td><td>${result[v].unit_charge}</td><td>${(result[v].unit_charge*result[v].price_per_unit).toFixed(2)}</td></tr>`; 
+    });
+    $("#prefix").find("tbody").html(tbody);
+    $("#loader").hide();
+  });
+
+
+
+});
+
+
+</script>
+
+
 @stop
