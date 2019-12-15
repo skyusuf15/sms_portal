@@ -128,11 +128,11 @@ return [
                     'url'         => 'dashboard/sms/bulk',
                     'icon' => 'circle'
                 ],
-                // [
-                //     'text'        => 'View Sent SMS',
-                //     'url'         => 'dashboard/sms',
-                //     'icon' => 'circle'
-                // ]
+                [
+                    'text'        => 'View All Sent SMS',
+                    'url'         => 'dashboard/sms_history/show',
+                    'icon' => 'circle'
+                ]
             ]
         ],
         // 'ACCOUNT SETTINGS',
