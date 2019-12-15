@@ -17,7 +17,7 @@ class CreateSmsHistoriesTable extends Migration
             $table->increments('id');
             $table->string("BatchID");
             // $table->dateTime("ReportDate");
-            $table->string("ReportDate");
+            $table->string("ReportDate",30);
             $table->string("MobileNumber", 13);
             $table->string("Status");
             $table->decimal("UnitsCharged");
