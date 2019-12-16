@@ -27,7 +27,7 @@
         <span class="info-box-icon bg-purple"><i class="ion ion-ios-albums"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Total Unit</span>
-          <span class="info-box-number" id="total_unit">0<small></small></span>
+          <span class="info-box-number" id="total_unit"><i class="fas fa-spin fa-spinner"></i> Loading......</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -39,7 +39,7 @@
         <span class="info-box-icon bg-blue"><i class="fas fa-money-check-alt"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Charged Usage</span>
-          <span class="info-box-number" id="charge_usage">0<small></small></span>
+          <span class="info-box-number" id="charge_usage"><i class="fas fa-spin fa-spinner"></i> Loading......</span>
         </div>
         <!-- /.info-box-content -->
       </div>
