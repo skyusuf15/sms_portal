@@ -21,6 +21,30 @@
       <!-- /.info-box -->
    </div>
   </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-purple"><i class="ion ion-ios-albums"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Total Unit</span>
+          <span class="info-box-number" id="total_unit">0<small></small></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+  </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-blue"><i class="fas fa-money-check-alt"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Charged Usage</span>
+          <span class="info-box-number" id="charge_usage">0<small></small></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+  </div>
 </div>
 
 {{--
@@ -134,14 +158,18 @@ $(function(){
 
   $.getJSON("{{url('/dashboard/getPrefixCount')}}"  , function(result){
     var tbody = ``;
+    var total_unit=0, charge_usage=0;
+
     $.each(Object.keys(result), function(i,v){
+      total_unit += result[v].unit_charge;
+      charge_usage += result[v].unit_charge*result[v].price_per_unit;
       tbody += `<tr><td style="width: 10px">${i+1}</td><td>${v}</td><td>${result[v].price_per_unit}</td><td>${result[v].network_count}</td><td>${result[v].unit_charge}</td><td>${(result[v].unit_charge*result[v].price_per_unit).toFixed(2)}</td></tr>`; 
     });
     $("#prefix").find("tbody").html(tbody);
+    $("#total_unit").text(Number(total_unit).toLocaleString());
+    $("#charge_usage").html('&#x20A6; ' + Number((charge_usage).toFixed(2)).toLocaleString());
     $("#loader").hide();
   });
-
-
 
 });
 
