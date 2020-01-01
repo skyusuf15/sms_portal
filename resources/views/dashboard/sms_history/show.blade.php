@@ -21,7 +21,6 @@
                                     <th>Batch ID</th>
                                     <th>Report Date</th>
                                     <th>Mobile Number</th>
-                                    <th>Status</th>
                                     <th>Unit Charged</th>
                                 </tr>
                                 @foreach ($sms_history as $sms)
@@ -30,7 +29,6 @@
                                     <td>{{$sms->BatchID}}</td>
                                     <td>{{ \Carbon\Carbon::parse($sms->ReportDate)}}</td>
                                     <td>{{$sms->MobileNumber}}</td>
-                                    <td>{{$sms->Status}}</td>
                                     <td>{{$sms->UnitsCharged}}</td>
                                 </tr>
                                 @endforeach
