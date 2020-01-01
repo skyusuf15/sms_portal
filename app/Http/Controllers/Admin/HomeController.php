@@ -52,7 +52,7 @@ class HomeController extends Controller
         $json_string = file_get_contents(storage_path('app') . "/telcos_prefix.json");
         $prefix_json = json_decode($json_string, true);
         
-        SmsHistory::chunk(100, function ($histories) use ($prefix_json) {
+        SmsHistory::chunk(1000, function ($histories) use ($prefix_json) {
             foreach ($histories as $history) {
                 $tempNumber = substr($history->MobileNumber, 3, strlen($history->MobileNumber));
                 foreach ($prefix_json as $json_object) {
